@@ -1,0 +1,112 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+#        - id: baidu_route
+#          uri: https://www.baidu.com
+#          predicates:
+#            - Query=url,baidu
+#
+#        - id: qq_route
+#          uri: https://www.qq.com
+#          predicates:
+#            - Query=url,qq
+
+        - id: product_route
+          uri: lb://gulimall-product
+          predicates:
+            - Path=/api/product/**
+          filters:
+            - RewritePath=/api/(?<segment>.*), /$\{segment}  #把api删掉
+
+        - id: seckill_route
+          uri: lb://gulimall-seckill
+          predicates:
+            - Path=/api/seckill/**
+          filters:
+            - RewritePath=/api/(?<segment>.*), /$\{segment}  #把api删掉
+
+        - id: member_route
+          uri: lb://gulimall-member
+          predicates:
+            - Path=/api/member/**
+          filters:
+            - RewritePath=/api/(?<segment>.*), /$\{segment}  #把api删掉
+
+        - id: coupon_route
+          uri: lb://gulimall-coupon
+          predicates:
+            - Path=/api/coupon/**
+          filters:
+            - RewritePath=/api/(?<segment>.*), /$\{segment}  #把api删掉
+
+        - id: ware_route
+          uri: lb://gulimall-ware
+          predicates:
+            - Path=/api/ware/**
+          filters:
+            - RewritePath=/api/(?<segment>.*), /$\{segment}  #把api删掉
+
+        - id: thirdparty_route
+          uri: lb://gulimall-thirdparty
+          predicates:
+            - Path=/api/thirdparty/**
+          filters:
+            - RewritePath=/api/thirdparty/(?<segment>.*), /$\{segment}  #把api删掉
+
+        - id: gulimall_cart
+          uri: lb://gulimall-cart
+          predicates:
+            - Path=/api/cart/**
+          filters:
+            - RewritePath=/api/cart/(?<segment>.*), /$\{segment}  #把api删掉
+
+        - id: gulimall_order
+          uri: lb://gulimall-order
+          predicates:
+            - Path=/api/order/**
+          filters:
+            - RewritePath=/api/order/(?<segment>.*), /$\{segment}  #把api删掉
+
+        - id: gulimall_auth_route
+          uri: lb://gulimall-auth-server
+          predicates:
+#            - Host=auth.gulimall.com
+            - Path=/api/auth/**
+          filters:
+            - RewritePath=/api/auth/(?<segment>.*), /$\{segment}  #把api删掉
+
+        - id: admin_route
+          uri: lb://renren-fast  #lb: 负载均衡，通过项目名进行请求
+          predicates:
+            - Path=/api/**  #前端项目都用 /api  /设置低优先级（往后放），否则在前会先过滤所有请求
+
+#  目前配置 http://localhost:88/api/captcha.jpg
+#  实际路由后 http://renren-fast:8080/api/captcha.jpg
+#  真正路径 http://localhost:8080/renren-fast/api/captcha.jpg
+          filters:
+            - RewritePath=/api/(?<segment>.*), /renren-fast/$\{segment}
+
+        - id: gulimall_host_route
+          uri: lb://gulimall-product
+          predicates:
+            - Host=gulimall.com
+
+        - id: gulimall_search_route
+          uri: lb://gulimall-search
+          predicates:
+            - Host=search.gulimall.com, item.gulimall.com
+
+
+
+          #以下为 跨域配置
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allow-credentials: true
+            allowedOriginPatterns: '*'
+            allowedMethods: '*'
+            allowedHeaders: '*'
+
+#      default-filters:
+#        - DedupeResponseHeader=Access-Control-Allow-Origin, RETAIN_UNIQUE
