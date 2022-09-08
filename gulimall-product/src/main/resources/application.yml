@@ -35,7 +35,7 @@ logging:
     com.boyiz.gulimall: debug  #设置com.boyiz.gulimall包下所有都是debug级别
 alibaba:
   cloud:
-    access-key: LTAI5tS7ryMmrhNA28xwo2uQ
-    secret-key: NG3LZulNTK93BT3YielEtv7g8Irn0J
+    access-key:
+    secret-key:
     oss:
       endpoint: oss-cn-shanghai.aliyuncs.com
