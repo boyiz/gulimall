@@ -13,7 +13,7 @@ public final class JwtUtil {
     /**
      * 这个秘钥是防止JWT被篡改的关键，随便写什么都好，但决不能泄露
      */
-    private final static String secretKey = "gulimallJWT";
+    private final static String secretKey = "";
     /**
      * 过期时间设置，这个配置随业务需求而定
      */

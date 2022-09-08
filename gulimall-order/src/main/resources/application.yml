@@ -3,7 +3,7 @@ spring:
     name: gulimall-order
   datasource:
     username: root
-    password: QAZWSX996633
+    password:
     url: jdbc:mysql://39.107.96.120:3306/gulimall_oms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
   cloud:

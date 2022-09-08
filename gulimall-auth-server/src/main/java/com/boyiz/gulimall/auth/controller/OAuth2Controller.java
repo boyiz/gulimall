@@ -34,8 +34,8 @@ public class OAuth2Controller {
         //https://api.weibo.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&response_type=code&redirect_uri=YOUR_REGISTERED_REDIRECT_URI
         //https://api.weibo.com/oauth2/access_token?client_id=YOUR_CLIENT_ID&client_secret=YOUR_CLIENT_SECRET&grant_type=authorization_code&redirect_uri=YOUR_REGISTERED_REDIRECT_URI&code=CODE
         Map<String, String> map = new HashMap<>();
-        map.put("client_id", "761972075");
-        map.put("client_secret", "6c847a372721110f2a6949dfe8f70b8a");
+        map.put("client_id", "");
+        map.put("client_secret", "");
         map.put("grant_type", "authorization_code");
         map.put("redirect_uri", "http://gulimall.com/oauth2/weibo/success");
         map.put("code", code);

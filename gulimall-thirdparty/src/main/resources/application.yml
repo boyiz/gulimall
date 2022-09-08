@@ -12,11 +12,11 @@ alibaba:
   cloud:
     oss:
       endpoint: oss-cn-shanghai.aliyuncs.com
-    access-key: LTAI5tS7ryMmrhNA28xwo2uQ
-    secret-key: NG3LZulNTK93BT3YielEtv7g8Irn0J
+    access-key:
+    secret-key:
     bucket: gulimall-tstst
     sms:
-      host: https://dfsns.market.alicloudapi.com
+      host: https://..alicloudapi.com
       path: /data/send_sms
-      appcode: db3629ed927d49d88594dc56ecc75542
-      template_id: TPL_0000
+      appcode:
+      template_id:

@@ -23,7 +23,7 @@ public class SmsComponent {
     public void sendSmsCode(String phone, String code) {
         String method = "POST";
         Map<String, String> headers = new HashMap<String, String>();
-        //最后在header中的格式(中间是英文空格)为Authorization:APPCODE 83359fd73fe94948385f570e3c139105
+        //最后在header中的格式(中间是英文空格)为Authorization:APPCODE 70e3c139105
         headers.put("Authorization", "APPCODE " + appcode);
         //根据API的要求，定义相对应的Content-Type
         headers.put("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
